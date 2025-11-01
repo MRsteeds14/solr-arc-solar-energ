@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Wallet, CheckCircle } from '@phosphor-icons/react'
@@ -14,6 +14,23 @@ interface WalletButtonProps {
 
 export function WalletButton({ wallet, onConnect, onDisconnect }: WalletButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false)
+      }
+    }
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
 
   if (!wallet.connected) {
     return (
@@ -29,26 +46,26 @@ export function WalletButton({ wallet, onConnect, onDisconnect }: WalletButtonPr
   }
 
   return (
-    <div className="relative">
+    <div className="relative w-full sm:w-auto" ref={dropdownRef}>
       <Button
         onClick={() => setIsOpen(!isOpen)}
         variant="outline"
-        size="lg"
-        className="gap-2 font-mono"
+        size="default"
+        className="gap-1.5 sm:gap-2 font-mono text-xs sm:text-sm w-full sm:w-auto justify-between sm:justify-center"
       >
-        <CheckCircle size={20} weight="fill" className="text-primary" />
-        {shortenAddress(wallet.address || '')}
-        <Badge variant="secondary" className="ml-1">
+        <CheckCircle size={18} weight="fill" className="text-primary flex-shrink-0" />
+        <span className="truncate">{shortenAddress(wallet.address || '')}</span>
+        <Badge variant="secondary" className="ml-1 hidden xs:inline-flex">
           {wallet.network}
         </Badge>
       </Button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-64 bg-card border border-border rounded-lg p-4 shadow-lg z-50">
+        <div className="absolute right-0 top-full mt-2 w-full sm:w-64 bg-card border border-border rounded-lg p-4 shadow-lg z-50">
           <div className="space-y-3">
             <div>
               <div className="text-xs text-muted-foreground mb-1">Address</div>
-              <div className="font-mono text-sm">{shortenAddress(wallet.address || '')}</div>
+              <div className="font-mono text-sm break-all">{wallet.address}</div>
             </div>
             <div>
               <div className="text-xs text-muted-foreground mb-1">Network</div>

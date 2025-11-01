@@ -265,45 +265,47 @@ function App() {
       <Toaster position="top-right" />
       
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Sun size={32} weight="fill" className="text-primary" />
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="p-1.5 sm:p-2 bg-primary/10 rounded-lg">
+                <Sun size={28} weight="fill" className="text-primary sm:w-8 sm:h-8" />
               </div>
               <div>
-                <h1 className="text-xl font-bold">SOLR-ARC</h1>
-                <p className="text-xs text-muted-foreground">Solar Energy Tokenization</p>
+                <h1 className="text-lg sm:text-xl font-bold">SOLR-ARC</h1>
+                <p className="text-xs text-muted-foreground hidden sm:block">Solar Energy Tokenization</p>
               </div>
             </div>
             
-            <WalletButton
-              wallet={wallet}
-              onConnect={handleConnect}
-              onDisconnect={handleDisconnect}
-            />
+            <div className="w-full sm:w-auto">
+              <WalletButton
+                wallet={wallet}
+                onConnect={handleConnect}
+                onDisconnect={handleDisconnect}
+              />
+            </div>
           </div>
         </div>
       </header>
 
       <main className="container mx-auto px-4 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4">
-            <TabsTrigger value="overview" className="gap-2">
-              <ChartLine size={18} />
-              <span className="hidden sm:inline">Overview</span>
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 h-auto">
+            <TabsTrigger value="overview" className="gap-1.5 sm:gap-2 flex-col sm:flex-row py-2 sm:py-1.5">
+              <ChartLine size={18} className="flex-shrink-0" />
+              <span className="text-xs sm:text-sm">Overview</span>
             </TabsTrigger>
-            <TabsTrigger value="mint" className="gap-2">
-              <Lightning size={18} />
-              <span className="hidden sm:inline">Mint</span>
+            <TabsTrigger value="mint" className="gap-1.5 sm:gap-2 flex-col sm:flex-row py-2 sm:py-1.5">
+              <Lightning size={18} className="flex-shrink-0" />
+              <span className="text-xs sm:text-sm">Mint</span>
             </TabsTrigger>
-            <TabsTrigger value="redeem" className="gap-2">
-              <ArrowsLeftRight size={18} />
-              <span className="hidden sm:inline">Redeem</span>
+            <TabsTrigger value="redeem" className="gap-1.5 sm:gap-2 flex-col sm:flex-row py-2 sm:py-1.5">
+              <ArrowsLeftRight size={18} className="flex-shrink-0" />
+              <span className="text-xs sm:text-sm">Redeem</span>
             </TabsTrigger>
-            <TabsTrigger value="profile" className="gap-2">
-              <UserCircle size={18} />
-              <span className="hidden sm:inline">Profile</span>
+            <TabsTrigger value="profile" className="gap-1.5 sm:gap-2 flex-col sm:flex-row py-2 sm:py-1.5">
+              <UserCircle size={18} className="flex-shrink-0" />
+              <span className="text-xs sm:text-sm">Profile</span>
             </TabsTrigger>
           </TabsList>
 
