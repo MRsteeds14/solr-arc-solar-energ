@@ -210,7 +210,7 @@ function App() {
         <div className="max-w-2xl w-full text-center space-y-8">
           <div className="flex items-center justify-center">
             <div className="p-4 bg-primary/10 rounded-2xl">
-              <img src={solrarcLogo} alt="SOLR-ARC Logo" className="w-16 h-16 object-contain" />
+              <Sun size={64} weight="fill" className="text-primary" />
             </div>
           </div>
           
