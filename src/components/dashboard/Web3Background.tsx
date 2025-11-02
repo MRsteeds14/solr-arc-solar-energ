@@ -39,7 +39,7 @@ export default function Web3Background() {
         enable: true,
         distance: 180,
         color: "#3B82F6",
-        opacity: 0.6,
+        opacity: 0.15,
         width: 1,
       },
       move: {
