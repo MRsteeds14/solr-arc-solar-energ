@@ -17,6 +17,17 @@ import { ARC_TESTNET, THIRDWEB_ARC_WALLET, CONTRACTS } from './constants'
 export const THIRDWEB_CLIENT_ID = import.meta.env.VITE_THIRDWEB_CLIENT_ID || ''
 
 /**
+ * Validate that the Thirdweb client ID is configured before making API calls
+ */
+function validateClientId(): void {
+  if (!THIRDWEB_CLIENT_ID) {
+    throw new Error(
+      'VITE_THIRDWEB_CLIENT_ID is not configured. Please set it in your .env file. See .env.example for details.'
+    )
+  }
+}
+
+/**
  * Chain configuration for Thirdweb SDK
  */
 export const thirdwebChainConfig = {
@@ -76,6 +87,9 @@ export async function thirdwebApiRequest(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<Response> {
+  // Validate client ID before making API requests
+  validateClientId()
+
   const headers = {
     'x-client-id': THIRDWEB_CLIENT_ID,
     'Content-Type': 'application/json',

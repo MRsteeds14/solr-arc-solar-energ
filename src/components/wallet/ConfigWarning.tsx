@@ -37,7 +37,7 @@ export function ConfigWarning() {
               <p className="text-xs text-muted-foreground mt-2">
                 See{' '}
                 <a
-                  href="/DEPLOYMENT.md"
+                  href="https://github.com/MRsteeds14/solr-arc-solar-energ/blob/main/DEPLOYMENT.md"
                   className="text-primary hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
