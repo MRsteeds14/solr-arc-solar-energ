@@ -7,6 +7,7 @@ import { Sun, Lightning, ChartLine, ArrowsLeftRight, UserCircle, Coins, Currency
 import solrarcLogo from '@/assets/images/SOLRARC.JPG'
 
 import { WalletButton } from '@/components/wallet/WalletButton'
+import { ConfigWarning } from '@/components/wallet/ConfigWarning'
 import { StatsCard } from '@/components/dashboard/StatsCard'
 import { EnergyChart } from '@/components/dashboard/EnergyChart'
 import { TransactionFeed } from '@/components/dashboard/TransactionFeed'
@@ -210,6 +211,7 @@ function App() {
       <div className="min-h-screen bg-background relative overflow-hidden">
         <Web3Background />
         <Toaster position="top-right" />
+        <ConfigWarning />
         
         <div className="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8">
           <div className="max-w-6xl w-full">
@@ -279,6 +281,7 @@ function App() {
       </div>
       
       <Toaster position="top-right" />
+      <ConfigWarning />
       
       <header className="relative z-50 border-b border-border/50 glass-card sticky top-0">
         <div className="container mx-auto px-4 py-3">

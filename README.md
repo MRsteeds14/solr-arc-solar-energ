@@ -12,6 +12,8 @@ AI-powered platform that tokenizes solar energy generation, enabling producers t
 
 ## 🚀 Quick Start
 
+**👉 New to the project? See [QUICKSTART.md](./QUICKSTART.md) for a 5-minute setup guide!**
+
 ### Prerequisites
 
 - Node.js 18+ and npm
