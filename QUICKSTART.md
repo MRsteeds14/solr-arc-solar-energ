@@ -50,15 +50,34 @@ The app will open at `http://localhost:5173` (or another port if 5173 is busy).
 
 ## 📝 Deploying Smart Contracts
 
-### Option A: Use Thirdweb Dashboard (Easiest)
+**📖 For complete deployment instructions, see [CONTRACT_DEPLOYMENT_GUIDE.md](./CONTRACT_DEPLOYMENT_GUIDE.md)**
+
+This repository includes ready-to-deploy Solidity contracts in the `contracts/` directory:
+- `SARCToken.sol` - ERC20 token (1 kWh = 1 sARC)
+- `Registry.sol` - Producer verification
+- `Treasury.sol` - USDC redemption (1 sARC = 0.10 USDC)
+- `MintingController.sol` - Energy-to-token minting
+
+### Quick Deploy Options
+
+#### Option A: Use Thirdweb CLI (Recommended)
+
+```bash
+npm install -g @thirdweb-dev/cli
+npx thirdweb deploy
+```
+
+This opens an interactive deployment interface in your browser.
+
+#### Option B: Use Thirdweb Dashboard (No Code)
 
 1. Go to [thirdweb.com/dashboard](https://thirdweb.com/dashboard)
-2. Connect your wallet `0x9e7D0d9775d9bacE19B97C8d25C6e572DdbaC072`
-3. Click "Deploy Contract"
+2. Click "Deploy Contract"
+3. Upload contracts from the `contracts/` directory
 4. Select "Arc Testnet" as the network
 5. Deploy!
 
-### Option B: Import Existing Contracts
+#### Option C: Import Existing Contracts
 
 Already have contracts deployed? Import them:
 
@@ -67,38 +86,31 @@ Already have contracts deployed? Import them:
 3. Enter your contract address
 4. Thirdweb will fetch the ABI and let you interact with it
 
-### Option C: Use the Thirdweb API
-
-With your x-client-id, you can make API calls:
-
-```javascript
-// Example: Get contract info
-const response = await fetch(
-  'https://api.thirdweb.com/contract/1234/0x9604ad29C8fEe0611EcE73a91e192E5d976E2184',
-  {
-    headers: {
-      'x-client-id': process.env.VITE_THIRDWEB_CLIENT_ID,
-    },
-  }
-);
-```
-
 ## 🔍 Verifying Everything Works
 
 1. **Check the UI**: You should see a configuration warning if `VITE_THIRDWEB_CLIENT_ID` is not set
 2. **Connect Wallet**: The demo uses your Thirdweb wallet address by default
 3. **View Contracts**: All contract addresses are displayed in the dashboard
 
-## 🎨 Current Contract Addresses
+## 🎨 Smart Contracts
 
-These contracts are already deployed on Arc Testnet and configured in the app:
+This repository includes complete Solidity contracts in the `contracts/` directory:
+
+- **`contracts/SARCToken.sol`** - ERC20 token for solar energy
+- **`contracts/Registry.sol`** - Producer verification system
+- **`contracts/Treasury.sol`** - USDC redemption management
+- **`contracts/MintingController.sol`** - Energy-to-token minting logic
+
+### Example Deployed Contracts (Arc Testnet)
+
+These example contracts are already configured in the app:
 
 - **sARC Token**: `0x9604ad29C8fEe0611EcE73a91e192E5d976E2184`
 - **Registry**: `0x742d35Cc6634C0532925a3b844Bc454e4438f44e`
 - **Treasury**: `0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199`
 - **Minting Controller**: `0xdD2FD4581271e230360230F9337D5c0430Bf44C0`
 
-You can import these into Thirdweb Dashboard to interact with them.
+You can import these into Thirdweb Dashboard to interact with them, or deploy your own using the [CONTRACT_DEPLOYMENT_GUIDE.md](./CONTRACT_DEPLOYMENT_GUIDE.md).
 
 ## ❓ Common Questions
 
@@ -120,7 +132,8 @@ This setup is for Arc Testnet. For production on Arc Mainnet:
 
 ## 📚 Next Steps
 
-- **Full Documentation**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment guide
+- **Deploy Contracts**: See [CONTRACT_DEPLOYMENT_GUIDE.md](./CONTRACT_DEPLOYMENT_GUIDE.md) for step-by-step deployment
+- **Full Documentation**: See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment overview
 - **Product Specs**: Check [PRD.md](./PRD.md) for feature details
 - **Thirdweb Docs**: Visit [portal.thirdweb.com](https://portal.thirdweb.com/)
 

@@ -66,7 +66,18 @@ We chose Thirdweb over Circle's developer-controlled wallet because:
 
 ## 📝 Smart Contracts
 
-The platform interacts with the following contracts on Arc Testnet:
+This repository includes complete Solidity smart contracts in the `contracts/` directory:
+
+- **SARCToken.sol** - ERC20 token for solar energy tokenization (1 kWh = 1 sARC)
+- **Registry.sol** - Producer verification and whitelisting system
+- **Treasury.sol** - USDC redemption management (1 sARC = 0.10 USDC)
+- **MintingController.sol** - Validated energy-to-token minting
+
+### Deploy Your Own Contracts
+
+See **[CONTRACT_DEPLOYMENT_GUIDE.md](./CONTRACT_DEPLOYMENT_GUIDE.md)** for complete deployment instructions using Thirdweb.
+
+### Example Deployed Contracts (Arc Testnet)
 
 - **sARC Token**: `0x9604ad29C8fEe0611EcE73a91e192E5d976E2184`
 - **Registry**: `0x742d35Cc6634C0532925a3b844Bc454e4438f44e`
@@ -101,8 +112,10 @@ src/
 
 ## 🔗 Resources
 
+- [Contract Deployment Guide](./CONTRACT_DEPLOYMENT_GUIDE.md) - **Complete step-by-step deployment instructions**
+- [Quick Start Guide](./QUICKSTART.md) - Fast setup for development
+- [Deployment Overview](./DEPLOYMENT.md) - General deployment information
 - [Product Requirements Document (PRD)](./PRD.md) - Detailed feature specifications
-- [Deployment Guide](./DEPLOYMENT.md) - Smart contract deployment instructions
 - [Thirdweb Documentation](https://portal.thirdweb.com/)
 - [Arc Testnet Explorer](https://testnet.arcscan.app)
 

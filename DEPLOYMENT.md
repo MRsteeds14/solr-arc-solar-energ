@@ -56,18 +56,47 @@ The following contracts are already deployed on Arc Testnet:
 - **Treasury**: `0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199`
 - **Minting Controller**: `0xdD2FD4581271e230360230F9337D5c0430Bf44C0`
 
-## Deploying New Contracts via Thirdweb
+## Smart Contract Source Code
 
-### Option 1: Thirdweb Dashboard (Recommended)
+This repository now includes complete Solidity smart contracts in the `contracts/` directory:
+
+- **`contracts/SARCToken.sol`** - ERC20 token for solar energy tokenization
+- **`contracts/Registry.sol`** - Producer verification and whitelisting
+- **`contracts/Treasury.sol`** - USDC redemption management
+- **`contracts/MintingController.sol`** - Validated energy-to-token minting
+
+## Complete Deployment Instructions
+
+**📖 For detailed, step-by-step deployment instructions, see [CONTRACT_DEPLOYMENT_GUIDE.md](./CONTRACT_DEPLOYMENT_GUIDE.md)**
+
+The comprehensive guide covers:
+- Using Thirdweb CLI (recommended)
+- Using Hardhat for command-line deployment
+- Using Thirdweb Dashboard (no code required)
+- Testing your deployment
+- Troubleshooting common issues
+
+## Quick Deployment Overview
+
+### Option 1: Thirdweb CLI (Recommended)
+
+```bash
+npm install -g @thirdweb-dev/cli
+npx thirdweb deploy
+```
+
+This opens an interactive deployment interface in your browser.
+
+### Option 2: Thirdweb Dashboard (No Code)
 
 1. Visit [Thirdweb Dashboard](https://thirdweb.com/dashboard)
 2. Connect your wallet (`0x9e7D0d9775d9bacE19B97C8d25C6e572DdbaC072`)
-3. Select "Deploy Contract"
-4. Choose your contract type or upload custom Solidity code
+3. Click "Deploy Contract"
+4. Upload contracts from the `contracts/` directory
 5. Select "Arc Testnet" as the network
-6. Deploy and confirm the transaction
+6. Deploy and confirm transactions
 
-### Option 2: Import Existing Contracts
+### Option 3: Import Existing Contracts
 
 If you have already deployed contracts and want to manage them via Thirdweb:
 
@@ -76,47 +105,17 @@ If you have already deployed contracts and want to manage them via Thirdweb:
 3. Enter the contract address on Arc Testnet
 4. Thirdweb will fetch the ABI and allow you to interact with the contract
 
-### Option 3: Thirdweb SDK (Programmatic)
+## After Deployment
 
-For automated deployments, use the Thirdweb SDK:
+Once contracts are deployed:
 
-```typescript
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+1. **Update Configuration**: Update `src/lib/constants.ts` with your new contract addresses
+2. **Grant Permissions**: Call `SARCToken.grantMinterRole(mintingControllerAddress)`
+3. **Register Producers**: Use `Registry.registerProducer()` to add solar producers
+4. **Fund Treasury**: Deposit USDC into the Treasury for redemptions
+5. **Test Everything**: Try minting and redemption flows
 
-const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.WALLET_PRIVATE_KEY,
-  "arc-testnet",
-  {
-    clientId: process.env.VITE_THIRDWEB_CLIENT_ID,
-  }
-);
-
-// Deploy a new contract
-const address = await sdk.deployer.deployBuiltInContract(
-  "token",
-  {
-    name: "sARC Token",
-    symbol: "sARC",
-    // ... other parameters
-  }
-);
-```
-
-## Using Thirdweb API
-
-With your x-client-id, you can use the Thirdweb API for various operations:
-
-```javascript
-// Example: Get contract info
-const response = await fetch(
-  `https://api.thirdweb.com/contract/${chainId}/${contractAddress}`,
-  {
-    headers: {
-      'x-client-id': process.env.VITE_THIRDWEB_CLIENT_ID,
-    },
-  }
-);
-```
+See [CONTRACT_DEPLOYMENT_GUIDE.md](./CONTRACT_DEPLOYMENT_GUIDE.md) for detailed instructions on each step.
 
 ## Integration with SOLR-ARC Platform
 
@@ -144,8 +143,9 @@ Before deploying to mainnet:
 
 ## Resources
 
+- **[Complete Deployment Guide](./CONTRACT_DEPLOYMENT_GUIDE.md)** - Step-by-step instructions
 - [Thirdweb Documentation](https://portal.thirdweb.com/)
-- [Thirdweb API Reference](https://api.thirdweb.com)
+- [Thirdweb Deploy Guide](https://portal.thirdweb.com/deploy)
 - [Arc Testnet Information](https://rpc-testnet.arcchain.org)
 - [SOLR-ARC Platform PRD](./PRD.md)
 

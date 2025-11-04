@@ -32,3 +32,8 @@ pids
 .devcontainer/
 
 .spark-workbench-id
+
+# Hardhat files
+cache
+artifacts
+typechain-types
