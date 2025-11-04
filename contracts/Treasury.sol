@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -32,6 +32,11 @@ contract Treasury is Ownable {
     /**
      * @dev Redeem sARC tokens for USDC
      * @param sarcAmount Amount of sARC tokens to redeem
+     * 
+     * Note: sARC tokens are transferred to this contract and held, not burned.
+     * This allows the treasury to track total redeemed tokens.
+     * To permanently remove tokens from circulation, the owner can transfer them
+     * to a burn address (0x000000000000000000000000000000000000dEaD).
      */
     function redeem(uint256 sarcAmount) external {
         require(sarcAmount > 0, "Amount must be greater than zero");
@@ -42,7 +47,7 @@ contract Treasury is Ownable {
         require(usdcAmount > 0, "USDC amount too small");
         require(usdcToken.balanceOf(address(this)) >= usdcAmount, "Insufficient USDC in treasury");
 
-        // Burn sARC tokens by transferring them to this contract
+        // Transfer sARC tokens from user to treasury (held for accounting)
         require(
             sarcToken.transferFrom(msg.sender, address(this), sarcAmount),
             "sARC transfer failed"
@@ -55,6 +60,22 @@ contract Treasury is Ownable {
         );
 
         emit Redeemed(msg.sender, sarcAmount, usdcAmount);
+    }
+
+    /**
+     * @dev Burn redeemed sARC tokens (owner only)
+     * Transfers tokens to the burn address to remove from circulation
+     * @param amount Amount of sARC tokens to burn
+     */
+    function burnRedeemedTokens(uint256 amount) external onlyOwner {
+        address burnAddress = address(0x000000000000000000000000000000000000dEaD);
+        require(amount > 0, "Amount must be greater than zero");
+        require(sarcToken.balanceOf(address(this)) >= amount, "Insufficient sARC balance");
+
+        require(
+            sarcToken.transfer(burnAddress, amount),
+            "Burn transfer failed"
+        );
     }
 
     /**

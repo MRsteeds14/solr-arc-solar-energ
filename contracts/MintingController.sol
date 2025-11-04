@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.27;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./SARCToken.sol";
@@ -13,6 +13,10 @@ import "./Registry.sol";
 contract MintingController is Ownable {
     SARCToken public sarcToken;
     Registry public registry;
+
+    // Token decimals constant (sARC uses 18 decimals like most ERC20 tokens)
+    uint256 private constant TOKEN_DECIMALS = 18;
+    uint256 private constant DECIMALS_MULTIPLIER = 10 ** TOKEN_DECIMALS;
 
     // Track daily minting per producer
     mapping(address => mapping(uint256 => uint256)) public dailyMinted; // producer => day => amount
@@ -59,7 +63,7 @@ contract MintingController is Ownable {
         uint256 mintedToday = dailyMinted[producer][currentDay];
         
         require(
-            mintedToday + kwhAmount <= dailyCapKWh * 1e18,
+            mintedToday + kwhAmount <= dailyCapKWh * DECIMALS_MULTIPLIER,
             "Exceeds daily generation cap"
         );
 
@@ -102,7 +106,7 @@ contract MintingController is Ownable {
         (, , uint256 dailyCapKWh, , ) = registry.getProducer(producer);
         uint256 currentDay = block.timestamp / 1 days;
         uint256 mintedToday = dailyMinted[producer][currentDay];
-        uint256 dailyCapWei = dailyCapKWh * 1e18;
+        uint256 dailyCapWei = dailyCapKWh * DECIMALS_MULTIPLIER;
 
         if (mintedToday >= dailyCapWei) {
             return 0;

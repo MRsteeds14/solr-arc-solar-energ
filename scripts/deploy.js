@@ -40,13 +40,22 @@ async function main() {
   console.log("✓ MintingController deployed to:", mintingControllerAddress);
   console.log();
 
-  // 4. Deploy Treasury (requires a USDC address - use placeholder for testnet)
+  // 4. Deploy Treasury (requires a USDC address)
   console.log("4. Deploying Treasury...");
-  // Note: On Arc Testnet, you'll need the actual USDC contract address
-  // For now, we'll deploy a mock USDC or use a placeholder
-  const usdcAddress = "0x0000000000000000000000000000000000000000"; // Replace with actual USDC address
-  console.log("⚠️  Note: Treasury requires USDC token address. Using placeholder for now.");
-  console.log("   Update this in the deployment script with the actual USDC address on Arc Testnet.");
+  
+  // IMPORTANT: Update this with the actual USDC token address on Arc Testnet
+  const usdcAddress = process.env.USDC_TOKEN_ADDRESS || "0x0000000000000000000000000000000000000000";
+  
+  if (usdcAddress === "0x0000000000000000000000000000000000000000") {
+    console.log("⚠️  WARNING: Treasury deployment will use zero address for USDC!");
+    console.log("   This is NOT suitable for production use.");
+    console.log("   Set USDC_TOKEN_ADDRESS in your .env file before deploying to mainnet.");
+    console.log("   For testnet, you can deploy a mock USDC token or find the testnet USDC address.");
+    console.log();
+    
+    // Uncomment to prevent accidental deployment with zero address
+    // throw new Error("USDC token address required. Set USDC_TOKEN_ADDRESS in .env file.");
+  }
   
   const Treasury = await hre.ethers.getContractFactory("Treasury");
   const treasury = await Treasury.deploy(sarcTokenAddress, usdcAddress);
