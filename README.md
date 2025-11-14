@@ -97,4 +97,4 @@ The Ask: We are seeking strategic partners and investors to accelerate the launc
 Let's tokenize the Sun and create a regenerative, stable financial future.
 
 Visit our website: solarlinked.io
-Contact us: [Your Contact Email]
+Contact us: sommersj1129@gmail.com
