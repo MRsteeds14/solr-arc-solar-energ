@@ -22,9 +22,9 @@ export function StatsCard({ title, value, subtitle, icon, trend, glowColor = 'pr
   }
 
   const iconGlow = {
-    primary: 'text-primary drop-shadow-[0_0_8px_oklch(0.65_0.25_265)] md:drop-shadow-[0_0_12px_oklch(0.65_0.25_265)]',
-    secondary: 'text-secondary drop-shadow-[0_0_8px_oklch(0.55_0.20_210)] md:drop-shadow-[0_0_12px_oklch(0.55_0.20_210)]',
-    accent: 'text-accent drop-shadow-[0_0_8px_oklch(0.70_0.18_330)] md:drop-shadow-[0_0_12px_oklch(0.70_0.18_330)]',
+    primary: 'text-primary drop-shadow-[0_0_8px_oklch(0.75_0.20_45)] md:drop-shadow-[0_0_12px_oklch(0.75_0.20_45)]',
+    secondary: 'text-secondary drop-shadow-[0_0_8px_oklch(0.70_0.18_40)] md:drop-shadow-[0_0_12px_oklch(0.70_0.18_40)]',
+    accent: 'text-accent drop-shadow-[0_0_8px_oklch(0.78_0.19_42)] md:drop-shadow-[0_0_12px_oklch(0.78_0.19_42)]',
   }
 
   return (
@@ -37,7 +37,7 @@ export function StatsCard({ title, value, subtitle, icon, trend, glowColor = 'pr
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight mb-1 text-[oklch(0.80_0.15_60)] break-words">{value}</h3>
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight mb-1 text-[oklch(0.75_0.18_45)] break-words">{value}</h3>
           </motion.div>
           {subtitle && (
             <p className="text-xs text-muted-foreground">{subtitle}</p>
