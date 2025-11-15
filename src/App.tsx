@@ -217,7 +217,7 @@ function App() {
               <div className="relative inline-block">
                 <GlowOrb size={window.innerWidth < 640 ? 180 : window.innerWidth < 768 ? 220 : 280} color="primary" className="mx-auto animate-glow" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Sun size={window.innerWidth < 640 ? 70 : window.innerWidth < 768 ? 90 : 120} weight="fill" className="text-primary drop-shadow-[0_0_20px_oklch(0.65_0.25_265)] md:drop-shadow-[0_0_30px_oklch(0.65_0.25_265)]" />
+                  <Sun size={window.innerWidth < 640 ? 70 : window.innerWidth < 768 ? 90 : 120} weight="fill" className="text-primary drop-shadow-[0_0_20px_oklch(0.75_0.25_50)] md:drop-shadow-[0_0_30px_oklch(0.75_0.25_50)]" />
                 </div>
               </div>
               
@@ -232,21 +232,21 @@ function App() {
 
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 text-left max-w-4xl mx-auto">
                 <div className="glass-card p-5 md:p-8 group hover:scale-105 transition-transform duration-300">
-                  <Lightning size={window.innerWidth < 640 ? 36 : 48} weight="fill" className="text-primary mb-3 md:mb-4 drop-shadow-[0_0_10px_oklch(0.65_0.25_265)] md:drop-shadow-[0_0_15px_oklch(0.65_0.25_265)] group-hover:animate-glow" />
+                  <Lightning size={window.innerWidth < 640 ? 36 : 48} weight="fill" className="text-primary mb-3 md:mb-4 drop-shadow-[0_0_10px_oklch(0.75_0.25_50)] md:drop-shadow-[0_0_15px_oklch(0.75_0.25_50)] group-hover:animate-glow" />
                   <h3 className="font-semibold text-base md:text-lg mb-2">Instant Tokenization</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                     Convert solar generation to sARC tokens with AI-powered validation in seconds
                   </p>
                 </div>
                 <div className="glass-card p-5 md:p-8 group hover:scale-105 transition-transform duration-300">
-                  <CurrencyCircleDollar size={window.innerWidth < 640 ? 36 : 48} weight="fill" className="text-accent mb-3 md:mb-4 drop-shadow-[0_0_10px_oklch(0.70_0.18_330)] md:drop-shadow-[0_0_15px_oklch(0.70_0.18_330)] group-hover:animate-glow" />
+                  <CurrencyCircleDollar size={window.innerWidth < 640 ? 36 : 48} weight="fill" className="text-accent mb-3 md:mb-4 drop-shadow-[0_0_10px_oklch(0.80_0.20_40)] md:drop-shadow-[0_0_15px_oklch(0.80_0.20_40)] group-hover:animate-glow" />
                   <h3 className="font-semibold text-base md:text-lg mb-2">USDC Settlement</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                     Seamless redemption to USDC on Arc blockchain with transparent rates
                   </p>
                 </div>
                 <div className="glass-card p-5 md:p-8 group hover:scale-105 transition-transform duration-300 sm:col-span-2 md:col-span-1">
-                  <ChartLine size={window.innerWidth < 640 ? 36 : 48} weight="fill" className="text-secondary mb-3 md:mb-4 drop-shadow-[0_0_10px_oklch(0.55_0.20_210)] md:drop-shadow-[0_0_15px_oklch(0.55_0.20_210)] group-hover:animate-glow" />
+                  <ChartLine size={window.innerWidth < 640 ? 36 : 48} weight="fill" className="text-secondary mb-3 md:mb-4 drop-shadow-[0_0_10px_oklch(0.65_0.22_45)] md:drop-shadow-[0_0_15px_oklch(0.65_0.22_45)] group-hover:animate-glow" />
                   <h3 className="font-semibold text-base md:text-lg mb-2">AI Automation</h3>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                     Autonomous agents validate, verify, and mint tokens with zero manual oversight
@@ -287,7 +287,7 @@ function App() {
               <div className="relative">
                 <div className="absolute inset-0 rounded-lg bg-primary/20 blur-md"></div>
                 <div className="relative p-1.5 sm:p-2 bg-primary/10 rounded-lg border border-primary/30">
-                  <Sun size={28} weight="fill" className="text-primary sm:w-8 sm:h-8 drop-shadow-[0_0_10px_oklch(0.65_0.25_265)]" />
+                  <Sun size={28} weight="fill" className="text-primary sm:w-8 sm:h-8 drop-shadow-[0_0_10px_oklch(0.75_0.25_50)]" />
                 </div>
               </div>
               <div>
