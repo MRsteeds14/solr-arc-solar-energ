@@ -84,7 +84,7 @@ export default function Web3Background() {
 
           if (distance < connectionDistance) {
             const opacity = (1 - distance / connectionDistance) * 0.15
-            ctx.strokeStyle = `rgba(130, 170, 150, ${opacity})`
+            ctx.strokeStyle = `rgba(60, 137, 109, ${opacity})`
             ctx.beginPath()
             ctx.moveTo(nodesRef.current[i].x, nodesRef.current[i].y)
             ctx.lineTo(nodesRef.current[j].x, nodesRef.current[j].y)
@@ -98,11 +98,11 @@ export default function Web3Background() {
         ctx.translate(node.x, node.y)
 
         ctx.shadowBlur = 15
-        ctx.shadowColor = 'rgba(120, 160, 140, 0.6)'
+        ctx.shadowColor = 'rgba(60, 137, 109, 0.3)'
         
         const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, triangleSize)
-        gradient.addColorStop(0, 'rgba(140, 180, 160, 0.4)')
-        gradient.addColorStop(1, 'rgba(100, 140, 120, 0.1)')
+        gradient.addColorStop(0, 'rgba(60, 137, 109, 0.15)')
+        gradient.addColorStop(1, 'rgba(60, 137, 109, 0.05)')
         ctx.fillStyle = gradient
 
         ctx.beginPath()
@@ -113,7 +113,7 @@ export default function Web3Background() {
         ctx.fill()
 
         ctx.shadowBlur = 0
-        ctx.strokeStyle = 'rgba(130, 170, 150, 0.3)'
+        ctx.strokeStyle = 'rgba(60, 137, 109, 0.2)'
         ctx.lineWidth = 1
         ctx.stroke()
 
