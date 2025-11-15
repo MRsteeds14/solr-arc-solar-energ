@@ -135,20 +135,22 @@ export default function Web3Background() {
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/3 via-background to-accent/3" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary/3 via-background to-accent/3" />
+      
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-primary/8 rounded-full blur-3xl animate-pulse" 
+             style={{ animationDuration: '4s' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-accent/8 rounded-full blur-3xl animate-pulse" 
+             style={{ animationDuration: '6s', animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-secondary/8 rounded-full blur-3xl animate-pulse" 
+             style={{ animationDuration: '5s', animationDelay: '2s' }} />
+      </div>
       
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full z-10"
         style={{ mixBlendMode: 'normal', opacity: 0.85 }}
       />
-      
-      <div className="absolute top-1/4 left-1/4 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-primary/8 rounded-full blur-3xl animate-pulse" 
-           style={{ animationDuration: '4s' }} />
-      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-accent/8 rounded-full blur-3xl animate-pulse" 
-           style={{ animationDuration: '6s', animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 lg:w-96 lg:h-96 bg-secondary/8 rounded-full blur-3xl animate-pulse" 
-           style={{ animationDuration: '5s', animationDelay: '2s' }} />
     </div>
   )
 }

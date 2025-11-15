@@ -211,7 +211,7 @@ function App() {
         <Web3Background />
         <Toaster position="top-right" />
         
-        <div className="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8">
+        <div className="relative z-20 min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8">
           <div className="max-w-6xl w-full">
             <div className="text-center space-y-8 md:space-y-12">
               <div className="relative inline-block">
@@ -307,7 +307,7 @@ function App() {
         </div>
       </header>
 
-      <main className="relative z-10 container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
+      <main className="relative z-20 container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4 md:space-y-6">
           <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 h-auto glass-card p-1">
             <TabsTrigger value="overview" className="gap-1 sm:gap-1.5 flex-col sm:flex-row py-2 sm:py-1.5 data-[state=active]:bg-primary/20 data-[state=active]:text-primary">
@@ -416,7 +416,7 @@ function App() {
         </Tabs>
       </main>
 
-      <footer className="relative z-10 border-t border-border/50 mt-8 md:mt-12 py-4 md:py-6 glass-card">
+      <footer className="relative z-20 border-t border-border/50 mt-8 md:mt-12 py-4 md:py-6 glass-card">
         <div className="container mx-auto px-3 sm:px-4 text-center text-xs md:text-sm text-muted-foreground">
           <p>Built for Encode x ARC DeFi Hackathon • Powered by Arc Blockchain</p>
         </div>
