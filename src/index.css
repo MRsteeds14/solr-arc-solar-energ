@@ -5,29 +5,29 @@
 }
 
 :root {
-  --background: oklch(14.7% 0.004 49.25);
+  --background: oklch(90.1% 0.058 230.902);
   --foreground: oklch(98.4% 0.003 247.858);
 
-  --card: oklch(27.4% 0.006 286.033);
+  --card: oklch(96.8% 0.007 247.896);
   --card-foreground: oklch(96.8% 0.007 247.896);
   
-  --popover: oklch(0.99 0.003 140);
-  --popover-foreground: oklch(0.20 0.12 140);
+  --popover: oklch(95.1% 0.026 236.824);
+  --popover-foreground: oklch(90.5% 0.182 98.111);
 
-  --primary: oklch(64.8% 0.2 131.684);
-  --primary-foreground: oklch(96.8% 0.007 247.896);
+  --primary: oklch(85.2% 0.199 91.936);
+  --primary-foreground: oklch(98.7% 0.026 102.212);
 
-  --secondary: oklch(0.88 0.08 140);
+  --secondary: oklch(90.5% 0.182 98.111);
   --secondary-foreground: oklch(92.9% 0.013 255.508);
 
   --muted: oklch(0.92 0.02 140);
-  --muted-foreground: oklch(0.45 0.08 140);
+  --muted-foreground: oklch(90.5% 0.182 98.111);
 
-  --accent: oklch(53.2% 0.157 131.589);
+  --accent: oklch(79.5% 0.184 86.047);
   --accent-foreground: oklch(96.8% 0.007 247.896);
 
-  --destructive: oklch(76.8% 0.233 130.85);
-  --destructive-foreground: oklch(45.5% 0.188 13.697);
+  --destructive: oklch(90.5% 0.182 98.111);
+  --destructive-foreground: oklch(55.3% 0.195 38.402);
 
   --border: oklch(0.85 0.05 140);
   --input: oklch(0.85 0.05 140);
@@ -37,7 +37,7 @@
   --glow-secondary: oklch(0.55 0.20 210);
   --glow-accent: oklch(0.70 0.18 330);
 
-  --radius: 1rem;
+  --radius: 0.75rem;
 
   --font-sans: IBM Plex Sans;
   --font-mono: Fira Code;
