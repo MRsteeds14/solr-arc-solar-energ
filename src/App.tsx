@@ -263,7 +263,7 @@ function App() {
               </div>
 
               <p className="text-xs text-muted-foreground/60 px-2">
-                Demo Mode • Arc Testnet • Built for AI Agents x ARC Hackathon
+                Arc Testnet • Built for Encode x ARC DeFi Hackathon
               </p>
             </div>
           </div>
