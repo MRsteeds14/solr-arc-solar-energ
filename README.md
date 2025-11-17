@@ -3,7 +3,7 @@
 
 Tagline: Turning Sunlight into Liquid, Compliant, Stablecoin Value.
 
-💡 What is SOLR-ARC?
+💡 What is SOLR-ARC? 
 
 SOLR-ARC is the next-generation protocol for tokenizing physical energy generation. It is a Verification-as-a-Service (VaaS) platform that automates the entire process of measuring, verifying, and financially settling solar energy (kWh) production directly into stablecoin value on the ARC blockchain.
 
